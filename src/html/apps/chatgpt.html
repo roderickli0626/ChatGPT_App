@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.2">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.2">
     <style type="text/css" id="operaUserStyle"></style>
+    <style>
+        .chat-content {
+            max-width: 80%;
+        }
+
+        .chat-msg {
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 
 <body
@@ -743,7 +753,8 @@
         function submitQuestion() {
             var chatbox = document.getElementById("chatbox");
             var questionElement = document.getElementById("default-textarea");
-            var question = questionElement.value;
+            var question = questionElement.value.replaceAll("\n", "<br/>");
+            if (question == "") return false;
             var myMessage = '<div class="chat is-me"><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
                 question +
                 '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
@@ -766,7 +777,7 @@
             }).then((response) => {
                 response.json().then((data) => {
                     chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><div class="user-avatar bg-purple"><span>CB</span></div></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
-                        data.choices[0].text +
+                        data.choices[0].text.replaceAll("\n", "<br/>") +
                         '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
                         new Date().toLocaleString() +
                         '</li></ul></div></div>';
@@ -778,9 +789,11 @@
             });
         }
         var input = document.getElementById("default-textarea");
-        input.addEventListener("keypress", function (event) {
+        input.addEventListener("keypress", function (e) {
             // If the user presses the "Enter" key on the keyboard
-            if (event.key === "Enter") {
+            if (e.key == "Enter" && e.shiftKey) {
+            }
+            else if (e.key === "Enter") {
                 // Cancel the default action, if needed
                 event.preventDefault();
                 // Trigger the button element with a click
