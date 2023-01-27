@@ -775,10 +775,9 @@
                     "temperature": 0.5,
                 })
             }).then((response) => {
-                var answer = data.choices[0].text.trim().replaceAll("\n", "<br/>");
                 response.json().then((data) => {
                     chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><div class="user-avatar bg-purple"><span>CB</span></div></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
-                        answer +
+                        data.choices[0].text.trim().replaceAll("\n", "<br/>") +
                         '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
                         new Date().toLocaleString() +
                         '</li></ul></div></div>';
