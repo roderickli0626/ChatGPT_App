@@ -547,10 +547,6 @@
                                         </div>
                                         <ul class="nk-chat-editor-tools g-2">
                                             <li>
-                                                <a href="#" class="btn btn-sm btn-icon btn-trigger text-primary"><em
-                                                        class="icon ni ni-happyf-fill"></em></a>
-                                            </li>
-                                            <li>
                                                 <button onclick="submitQuestion();"
                                                     class="btn btn-round btn-primary btn-icon"><em
                                                         class="icon ni ni-send-alt"></em></button>
@@ -781,9 +777,16 @@
                 })
             });
         }
-        function getCurrentTime() {
-
-        }
+        var input = document.getElementById("default-textarea");
+        input.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                submitQuestion();
+            }
+        });
     </script>
 
 </body>
