@@ -746,14 +746,15 @@
     <script>
         function submitQuestion() {
             var chatbox = document.getElementById("chatbox");
-            var question = document.getElementById("default-textarea");
+            var questionElement = document.getElementById("default-textarea");
+            var question = questionElement.value;
             var myMessage = '<div class="chat is-me"><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
-                question.value +
+                question +
                 '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
                 new Date().toLocaleString() +
                 '</li></ul></div></div>';
             chatbox.innerHTML += myMessage;
-            question.value = "";
+            questionElement.value = "";
             var chatbotMessage = '';
             var answer = fetch("https://api.openai.com/v1/engines/text-davinci-003/completions", {
                 method: 'POST',
