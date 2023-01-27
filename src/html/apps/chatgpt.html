@@ -529,7 +529,7 @@
                                             <div class="simplebar-scrollbar simplebar-visible"
                                                 style="width: 0px; display: none;"></div>
                                         </div>
-                                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
                                             <div class="simplebar-scrollbar simplebar-visible"
                                                 style="height: 204px; transform: translate3d(0px, 0px, 0px); display: block;">
                                             </div>
@@ -753,7 +753,7 @@
         function submitQuestion() {
             var chatbox = document.getElementById("chatbox");
             var questionElement = document.getElementById("default-textarea");
-            var question = questionElement.value.replaceAll("\n", "<br/>");
+            var question = questionElement.value.trim().replaceAll("\n", "<br/>");
             if (question == "") return false;
             var myMessage = '<div class="chat is-me"><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
                 question +
@@ -775,9 +775,10 @@
                     "temperature": 0.5,
                 })
             }).then((response) => {
+                var answer = data.choices[0].text.trim().replaceAll("\n", "<br/>");
                 response.json().then((data) => {
                     chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><div class="user-avatar bg-purple"><span>CB</span></div></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
-                        data.choices[0].text.replaceAll("\n", "<br/>") +
+                        answer +
                         '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
                         new Date().toLocaleString() +
                         '</li></ul></div></div>';
