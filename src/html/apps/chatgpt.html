@@ -614,17 +614,17 @@
                                                                         <div class="chat-profile-body-inner">
                                                                             <ul class="chat-profile-options">
                                                                                 <li><a class="chat-option-link"
-                                                                                        href="#"><em
+                                                                                        href="javascript:textAClick('content')"><em
                                                                                             class="icon icon-circle bg-light ni ni-edit-alt"></em><span
                                                                                             class="lead-text">Content
                                                                                             Writing</span></a></li>
-                                                                                <li><a class="chat-option-link chat-search-toggle"
-                                                                                        href="#"><em
+                                                                                <li><a class="chat-option-link"
+                                                                                        href="javascript:textAClick('search')"><em
                                                                                             class="icon icon-circle bg-light ni ni-search"></em><span
                                                                                             class="lead-text">Search
                                                                                             Propositions</span></a></li>
                                                                                 <li><a class="chat-option-link"
-                                                                                        href="#"><em
+                                                                                        href="javascript:textAClick('act')"><em
                                                                                             class="icon icon-circle bg-light ni ni-circle-fill"></em><span
                                                                                             class="lead-text">Act
                                                                                             As</span></a></li>
@@ -644,38 +644,8 @@
                                                                     <div class="chat-profile-body collapse show"
                                                                         id="chat-settings">
                                                                         <div class="chat-profile-body-inner">
-                                                                            <ul class="chat-profile-settings">
-
-                                                                                <li>
-                                                                                    <a class="chat-option-link"
-                                                                                        href="#">
-                                                                                        <em
-                                                                                            class="icon icon-circle bg-light ni ni-bell-off-fill"></em>
-                                                                                        <div>
-                                                                                            <span
-                                                                                                class="lead-text">Ignore
-                                                                                                Messages</span>
-                                                                                            <span class="sub-text">You
-                                                                                                won’t be notified when
-                                                                                                message you.</span>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="chat-option-link"
-                                                                                        href="#">
-                                                                                        <em
-                                                                                            class="icon icon-circle bg-light ni ni-alert-fill"></em>
-                                                                                        <div>
-                                                                                            <span
-                                                                                                class="lead-text">Something
-                                                                                                Wrong</span>
-                                                                                            <span class="sub-text">Give
-                                                                                                feedback and report
-                                                                                                conversion.</span>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
+                                                                            <ul id="promptPreviewPane"
+                                                                                class="chat-profile-settings">
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -750,6 +720,24 @@
     <script src="./assets/js/scripts.js?ver=3.1.2"></script>
     <script src="./assets/js/apps/chats.js?ver=3.1.2"></script>
     <script>
+        var promptText = {
+            'content': [
+                { 'title': 'Title A', 'content': 'text sample A' },
+                { 'title': 'Title B', 'content': 'text sample B' },
+                { 'title': 'Title C', 'content': 'text sample C' },
+            ],
+            'search': [
+                { 'title': 'Search A', 'content': 'text sample A (search)' },
+                { 'title': 'Search B', 'content': 'text sample B (search)' },
+                { 'title': 'Search C', 'content': 'text sample C (search)' },
+            ],
+            'act': [
+                { 'title': 'Act A', 'content': 'text sample A (Act)' },
+                { 'title': 'Act B', 'content': 'text sample B (Act)' },
+                { 'title': 'Act C', 'content': 'text sample C (Act)' },
+            ],
+        }
+
         function submitQuestion() {
             var chatbox = document.getElementById("chatbox");
             var questionElement = document.getElementById("default-textarea");
@@ -762,6 +750,10 @@
                 '</li></ul></div></div>';
             chatbox.innerHTML += myMessage;
             questionElement.value = "";
+            questionElement.disabled = true;
+            questionElement.setAttribute("title", "Please wait a bit");
+            questionElement.style.cursor = "wait";
+
             var chatbotMessage = '';
             var answer = fetch("https://api.openai.com/v1/engines/text-davinci-003/completions", {
                 method: 'POST',
@@ -775,6 +767,9 @@
                     "temperature": 0.5,
                 })
             }).then((response) => {
+                questionElement.disabled = false;
+                questionElement.setAttribute("title", "Please input prompt");
+                questionElement.style.cursor = "text";
                 response.json().then((data) => {
                     chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><div class="user-avatar bg-purple"><span>CB</span></div></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
                         data.choices[0].text.trim().replaceAll("\n", "<br/>") +
@@ -788,6 +783,29 @@
                 })
             });
         }
+
+        function textAClick(type) {
+            var pane = document.getElementById("promptPreviewPane");
+            pane.innerHTML = "";
+            promptText[type].map(item => {
+                renderPreviewPane(item.title, item.content);
+            })
+        };
+
+        function renderPreviewPane(title, content) {
+            var pane = document.getElementById("promptPreviewPane");
+            var code = '<li><a class="chat-option-link" href="javascript:putmessage(\'' + content + '\')"><em class="icon icon-circle bg-light ni ni-bell-off-fill"></em><div>' +
+                '<span class="lead-text">' + title + '</span>' +
+                '<span class="sub-text">' + content + '</span></div></a></li>';
+            pane.innerHTML += code;
+        }
+
+        function putmessage(msg) {
+            document.getElementById('default-textarea').innerHTML = msg;
+        }
+
+        textAClick('content');
+
         var input = document.getElementById("default-textarea");
         input.addEventListener("keypress", function (e) {
             // If the user presses the "Enter" key on the keyboard
