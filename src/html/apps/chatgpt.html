@@ -385,175 +385,170 @@
             </div>
             <!-- main header @e -->
             <!-- content @s -->
-            <div class="nk-chat" style="margin-top: 65px;">
-                <!-- .nk-chat-aside -->
-                <div class="nk-chat-body profile-shown" style="opacity: 1;pointer-events: auto;">
-                    <div class="nk-chat-panel" data-simplebar="init">
-                        <div class="simplebar-wrapper" style="margin: -20px 0">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
-                            </div>
-                            <div class="simplebar-mask">
-                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
-                                        aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
-                                        <div id="chatbox" class="simplebar-content" style="padding: 20px 28px;">
-                                            <div class="chat is-you">
-                                                <div class="chat-avatar">
-                                                    <img class="user-avatar bg-transparent"
-                                                        src="http://chat.diix.online/images/avatar/hca.png" />
-                                                </div>
-                                                <div class="chat-content">
-                                                    <div class="chat-bubbles">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-msg">
-                                                                Hello, how can i help you?
-                                                            </div>
+            <div class="nk-chat nk-chat-body profile-shown" style="opacity: 1;pointer-events: auto; margin-top: 65px;">
+                <div class="nk-chat-panel" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: -20px 0">
+                        <div class="simplebar-height-auto-observer-wrapper">
+                            <div class="simplebar-height-auto-observer"></div>
+                        </div>
+                        <div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                    aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                                    <div id="chatbox" class="simplebar-content" style="padding: 20px 28px;">
+                                        <div class="chat is-you">
+                                            <div class="chat-avatar">
+                                                <img class="user-avatar bg-transparent"
+                                                    src="http://chat.diix.online/images/avatar/hca.png" />
+                                            </div>
+                                            <div class="chat-content">
+                                                <div class="chat-bubbles">
+                                                    <div class="chat-bubble">
+                                                        <div class="chat-msg">
+                                                            Hello, how can i help you?
                                                         </div>
                                                     </div>
-                                                    <ul class="chat-meta">
-                                                        <li>CB</li>
-                                                        <li id="current-time"></li>
+                                                </div>
+                                                <ul class="chat-meta">
+                                                    <li>CB</li>
+                                                    <li id="current-time"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simplebar-placeholder" style="width: auto; height: 887px;">
+                        </div>
+                    </div>
+                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;">
+                        </div>
+                    </div>
+                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar simplebar-visible"
+                            style="height: 204px; transform: translate3d(0px, 0px, 0px); display: block;">
+                        </div>
+                    </div>
+                </div><!-- .nk-chat-panel -->
+                <div class="nk-chat-editor">
+                    <div class="nk-chat-editor-upload  ms-n1">
+                        <a href="#" class="btn btn-sm btn-icon btn-trigger text-primary toggle-opt"
+                            data-target="chat-upload"><em class="icon ni ni-plus-circle-fill"></em></a>
+                        <div class="chat-upload-option" data-content="chat-upload">
+                            <ul class="">
+                                <li><a href="#"><em class="icon ni ni-img-fill"></em></a></li>
+                                <li><a href="#"><em class="icon ni ni-camera-fill"></em></a></li>
+                                <li><a href="#"><em class="icon ni ni-mic"></em></a></li>
+                                <li><a href="#"><em class="icon ni ni-grid-sq"></em></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nk-chat-editor-form">
+                        <div class="form-control-wrap">
+                            <textarea class="form-control form-control-simple no-resize" rows="1" id="default-textarea"
+                                placeholder="Type your message..."></textarea>
+                        </div>
+                    </div>
+                    <ul class="nk-chat-editor-tools g-2">
+                        <li>
+                            <button onclick="submitQuestion();" class="btn btn-round btn-primary btn-icon"><em
+                                    class="icon ni ni-send-alt"></em></button>
+                        </li>
+                    </ul>
+                </div><!-- .nk-chat-editor -->
+                <div class="nk-chat-profile visible" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: 0px;">
+                        <div class="simplebar-height-auto-observer-wrapper">
+                            <div class="simplebar-height-auto-observer"></div>
+                        </div>
+                        <div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                    aria-label="scrollable content" style="height: 100%; overflow: hidden;">
+                                    <div class="simplebar-content" style="padding: 0px;">
+                                        <div class="user-card user-card-s2 my-4">
+                                            <div class="user-info">
+                                                <h5>Project Name</h5>
+                                            </div>
+                                            <div class="user-card-menu dropdown">
+                                                <a href="#" class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
+                                                    data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <ul class="link-list-opt no-bdr">
+                                                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit
+                                                                    Project Name</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-delete"></em><span>Remove
+                                                                    Project</span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="simplebar-placeholder" style="width: auto; height: 887px;">
-                            </div>
-                        </div>
-                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
-                            <div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;">
-                            </div>
-                        </div>
-                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
-                            <div class="simplebar-scrollbar simplebar-visible"
-                                style="height: 204px; transform: translate3d(0px, 0px, 0px); display: block;">
-                            </div>
-                        </div>
-                    </div><!-- .nk-chat-panel -->
-                    <div class="nk-chat-editor">
-                        <div class="nk-chat-editor-upload  ms-n1">
-                            <a href="#" class="btn btn-sm btn-icon btn-trigger text-primary toggle-opt"
-                                data-target="chat-upload"><em class="icon ni ni-plus-circle-fill"></em></a>
-                            <div class="chat-upload-option" data-content="chat-upload">
-                                <ul class="">
-                                    <li><a href="#"><em class="icon ni ni-img-fill"></em></a></li>
-                                    <li><a href="#"><em class="icon ni ni-camera-fill"></em></a></li>
-                                    <li><a href="#"><em class="icon ni ni-mic"></em></a></li>
-                                    <li><a href="#"><em class="icon ni ni-grid-sq"></em></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="nk-chat-editor-form">
-                            <div class="form-control-wrap">
-                                <textarea class="form-control form-control-simple no-resize" rows="1"
-                                    id="default-textarea" placeholder="Type your message..."></textarea>
-                            </div>
-                        </div>
-                        <ul class="nk-chat-editor-tools g-2">
-                            <li>
-                                <button onclick="submitQuestion();" class="btn btn-round btn-primary btn-icon"><em
-                                        class="icon ni ni-send-alt"></em></button>
-                            </li>
-                        </ul>
-                    </div><!-- .nk-chat-editor -->
-                    <div class="nk-chat-profile visible" data-simplebar="init">
-                        <div class="simplebar-wrapper" style="margin: 0px;">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
-                            </div>
-                            <div class="simplebar-mask">
-                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
-                                        aria-label="scrollable content" style="height: 100%; overflow: hidden;">
-                                        <div class="simplebar-content" style="padding: 0px;">
-                                            <div class="user-card user-card-s2 my-4">
-                                                <div class="user-info">
-                                                    <h5>Project Name</h5>
-                                                </div>
-                                                <div class="user-card-menu dropdown">
-                                                    <a href="#" class="btn btn-icon btn-sm btn-trigger dropdown-toggle"
-                                                        data-bs-toggle="dropdown"><em
-                                                            class="icon ni ni-more-h"></em></a>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <ul class="link-list-opt no-bdr">
-                                                            <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit
-                                                                        Project Name</span></a></li>
-                                                            <li><a href="#"><em
-                                                                        class="icon ni ni-delete"></em><span>Remove
-                                                                        Project</span></a></li>
+                                        <div class="chat-profile">
+                                            <div class="chat-profile-group">
+                                                <a href="#" class="chat-profile-head" data-bs-toggle="collapse"
+                                                    data-bs-target="#chat-options">
+                                                    <h6 class="title overline-title">Help Prompt
+                                                    </h6>
+                                                    <span class="indicator-icon"><em
+                                                            class="icon ni ni-chevron-down"></em></span>
+                                                </a>
+                                                <div class="chat-profile-body collapse show" id="chat-options">
+                                                    <div class="chat-profile-body-inner">
+                                                        <ul class="chat-profile-options">
+                                                            <li><a class="chat-option-link"
+                                                                    href="javascript:textAClick('content')"><em
+                                                                        class="icon icon-circle bg-light ni ni-edit-alt"></em><span
+                                                                        class="lead-text">Content
+                                                                        Writing</span></a></li>
+                                                            <li><a class="chat-option-link"
+                                                                    href="javascript:textAClick('search')"><em
+                                                                        class="icon icon-circle bg-light ni ni-search"></em><span
+                                                                        class="lead-text">Search
+                                                                        Propositions</span></a></li>
+                                                            <li><a class="chat-option-link"
+                                                                    href="javascript:textAClick('act')"><em
+                                                                        class="icon icon-circle bg-light ni ni-circle-fill"></em><span
+                                                                        class="lead-text">Act
+                                                                        As</span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="chat-profile">
-                                                <div class="chat-profile-group">
-                                                    <a href="#" class="chat-profile-head" data-bs-toggle="collapse"
-                                                        data-bs-target="#chat-options">
-                                                        <h6 class="title overline-title">Help Prompt
-                                                        </h6>
-                                                        <span class="indicator-icon"><em
-                                                                class="icon ni ni-chevron-down"></em></span>
-                                                    </a>
-                                                    <div class="chat-profile-body collapse show" id="chat-options">
-                                                        <div class="chat-profile-body-inner">
-                                                            <ul class="chat-profile-options">
-                                                                <li><a class="chat-option-link"
-                                                                        href="javascript:textAClick('content')"><em
-                                                                            class="icon icon-circle bg-light ni ni-edit-alt"></em><span
-                                                                            class="lead-text">Content
-                                                                            Writing</span></a></li>
-                                                                <li><a class="chat-option-link"
-                                                                        href="javascript:textAClick('search')"><em
-                                                                            class="icon icon-circle bg-light ni ni-search"></em><span
-                                                                            class="lead-text">Search
-                                                                            Propositions</span></a></li>
-                                                                <li><a class="chat-option-link"
-                                                                        href="javascript:textAClick('act')"><em
-                                                                            class="icon icon-circle bg-light ni ni-circle-fill"></em><span
-                                                                            class="lead-text">Act
-                                                                            As</span></a></li>
-                                                            </ul>
-                                                        </div>
+                                            </div><!-- .chat-profile-group -->
+                                            <div class="chat-profile-group">
+                                                <a href="#" class="chat-profile-head" data-bs-toggle="collapse"
+                                                    data-bs-target="#chat-settings">
+                                                    <h6 class="title overline-title">Preview Prompt
+                                                        to use</h6>
+                                                    <span class="indicator-icon"><em
+                                                            class="icon ni ni-chevron-down"></em></span>
+                                                </a>
+                                                <div class="chat-profile-body collapse show" id="chat-settings">
+                                                    <div class="chat-profile-body-inner">
+                                                        <ul id="promptPreviewPane" class="chat-profile-settings">
+                                                        </ul>
                                                     </div>
-                                                </div><!-- .chat-profile-group -->
-                                                <div class="chat-profile-group">
-                                                    <a href="#" class="chat-profile-head" data-bs-toggle="collapse"
-                                                        data-bs-target="#chat-settings">
-                                                        <h6 class="title overline-title">Preview Prompt
-                                                            to use</h6>
-                                                        <span class="indicator-icon"><em
-                                                                class="icon ni ni-chevron-down"></em></span>
-                                                    </a>
-                                                    <div class="chat-profile-body collapse show" id="chat-settings">
-                                                        <div class="chat-profile-body-inner">
-                                                            <ul id="promptPreviewPane" class="chat-profile-settings">
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- .chat-profile-group -->
-                                                <!-- .chat-profile-group -->
-                                            </div> <!-- .chat-profile -->
-                                        </div>
+                                                </div>
+                                            </div><!-- .chat-profile-group -->
+                                            <!-- .chat-profile-group -->
+                                        </div> <!-- .chat-profile -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="simplebar-placeholder" style="width: auto; height: 550px;">
-                            </div>
                         </div>
-                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
-                            <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                        <div class="simplebar-placeholder" style="width: auto; height: 550px;">
                         </div>
-                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
-                            <div class="simplebar-scrollbar"
-                                style="height: 0px; display: none; transform: translate3d(0px, 43px, 0px);">
-                            </div>
+                    </div>
+                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar"
+                            style="height: 0px; display: none; transform: translate3d(0px, 43px, 0px);">
                         </div>
-                    </div><!-- .nk-chat-profile -->
-                </div><!-- .nk-chat-body -->
+                    </div>
+                </div><!-- .nk-chat-profile -->
             </div><!-- .nk-chat -->
         </div>
         <!-- wrap @e -->
@@ -618,10 +613,10 @@
                 { 'title': 'Act C', 'content': 'text sample C (Act)' },
             ],
         }
+        var chatbox = document.getElementById("chatbox");
+        var questionElement = document.getElementById("default-textarea");
 
         function submitQuestion() {
-            var chatbox = document.getElementById("chatbox");
-            var questionElement = document.getElementById("default-textarea");
             var question = questionElement.value.trim().replaceAll("\n", "<br/>");
             if (question == "") return false;
             var myMessage = '<div class="chat is-me"><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
@@ -654,7 +649,7 @@
                 questionElement.setAttribute("title", "Please input prompt");
                 questionElement.style.cursor = "text";
                 response.json().then((data) => {
-                    chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><div class="user-avatar bg-purple"><img class="user-avatar bg-transparent" src="http://chat.diix.online/images/avatar/hca.png" /></div></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
+                    chatbox.innerHTML += '<div class="chat is-you"><div class="chat-avatar"><img class="user-avatar bg-transparent" src="http://chat.diix.online/images/avatar/hca.png" /></div><div class="chat-content"><div class="chat-bubbles"><div class="chat-bubble"><div class="chat-msg">' +
                         data.choices[0].text.trim().replaceAll("\n", "<br/>") +
                         '</div></div></div><ul class="chat-meta"><li>Me</li><li>' +
                         new Date().toLocaleString() +
@@ -684,7 +679,8 @@
         }
 
         function putmessage(msg) {
-            document.getElementById('default-textarea').value = msg;
+            if (!questionElement.disabled)
+                questionElement.value = msg;
         }
 
         textAClick('content');
