@@ -21,7 +21,7 @@ function submitQuestion() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer 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'
         },
         body: JSON.stringify({
             "prompt": question,
